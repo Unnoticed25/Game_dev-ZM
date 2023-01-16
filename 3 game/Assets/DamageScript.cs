@@ -9,5 +9,6 @@ public class DamageScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
          StartCoroutine(FindObjectOfType<PlayerManager>().Damage(damageCount));
+         
     }
 }

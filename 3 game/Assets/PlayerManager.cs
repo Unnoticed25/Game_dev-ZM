@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
         playerHPText.text = "" + playerHP;
         if (isGameOver)
         {
-            SceneManager.LoadScene("EnemyDamage");
+            SceneManager.LoadScene("SampleScene");
         }
     }
             
@@ -35,7 +35,8 @@ public class PlayerManager : MonoBehaviour
         if (playerHP <= 0)
             isGameOver = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         bloodOverlay.SetActive(false);
     }
+    
 }
