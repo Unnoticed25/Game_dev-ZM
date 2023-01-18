@@ -5,10 +5,10 @@ using UnityEngine;
 public class PickUpWeapon : MonoBehaviour
 {
 
-    public GameObject first_person_camera;
+    public GameObject camera;
     public float distance = 15f;
     GameObject currentWeapon;
-    bool canPickUp;
+    bool canPickUp = false;
    
 
     
@@ -21,7 +21,7 @@ public class PickUpWeapon : MonoBehaviour
     void PickUp()
     {
         RaycastHit hit;
-        if(Physics.Raycast(first_person_camera.transform.position, first_person_camera.transform.forward, out hit, distance))
+        if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, distance))
         {
             if(hit.transform.tag == "Weapon")
             {
