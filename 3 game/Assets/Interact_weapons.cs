@@ -18,5 +18,4 @@ public class Interact_weapons : MonoBehaviour
         outline.enabled = false;
     }
 
-
 }

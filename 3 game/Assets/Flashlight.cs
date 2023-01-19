@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-
     private Light Flashl;
     void Start()
     {
