@@ -8,7 +8,7 @@ public class EnemyScript : MonoBehaviour
     private int HP = 100;
     public Animator animator;
     public Slider healthBar;
-    public bool TakeDamageDone;
+    public bool takedamagedone;
     
     
     void start()
@@ -34,9 +34,9 @@ public class EnemyScript : MonoBehaviour
             healthBar.gameObject.SetActive(false);
         }
         else{
+            Invoke("healthBar.gameObject.SetActive(true)", 5.0f);
             animator.SetTrigger("damage");
         }
-        TakeDamageDone = true;
     }
 
 

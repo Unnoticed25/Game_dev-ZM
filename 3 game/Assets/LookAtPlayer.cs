@@ -20,10 +20,4 @@ public class LookAtPlayer : MonoBehaviour
         transform.LookAt(camera);
     }
 
-    // void Update() {
-    //     if (takedamagefrom.TakeDamage()) {
-    //     healthbar.SetActive(true);
-    //     }
-    // }
-
 }
