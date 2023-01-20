@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour
     private int HP = 100;
     public Animator animator;
     public Slider healthBar;
+
     
     
     void start()
@@ -35,8 +36,17 @@ public class EnemyScript : MonoBehaviour
         else{
             animator.SetTrigger("damage");
         }
+        StartCoroutine(WaittohideHp());
+         
     }
 
+    
 
+
+    private IEnumerator WaittohideHp(){
+        healthBar.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        healthBar.gameObject.SetActive(false);
+    }
 }
 
