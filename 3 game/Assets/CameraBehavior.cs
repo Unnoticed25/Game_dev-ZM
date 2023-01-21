@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    [SerializeField] private float Sensitivity;
+    [SerializeField] private float Sensitivity = 2;
     private float xAngle;
     private float yAngle;
     private void Start()
