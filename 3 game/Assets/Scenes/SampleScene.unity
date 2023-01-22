@@ -2402,8 +2402,8 @@ GameObject:
   m_Component:
   - component: {fileID: 373845200}
   - component: {fileID: 373845201}
-  - component: {fileID: 373845202}
   - component: {fileID: 373845203}
+  - component: {fileID: 373845202}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -2500,6 +2500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2805e40d6f88c347ab107c0a312f3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 373845203}
+  pressaudio: {fileID: 8300000, guid: deabca86d5fe02e4c830906be9013600, type: 3}
 --- !u!82 &373845203
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2507,12 +2509,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373845199}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: deabca86d5fe02e4c830906be9013600, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

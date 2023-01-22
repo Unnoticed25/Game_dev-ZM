@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-
-    // public AudioClip[] runningAudio;
     private Light Flashl;
-    private bool FlashlightOn;
-    private AudioSource audioturn;
+    public AudioSource audio;
+    public AudioClip pressaudio;
+    
     void Start()
     {
         Flashl = GetComponent<Light>();
-        audioturn = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,16 +18,11 @@ public class Flashlight : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Flashl.enabled = !Flashl.enabled;
-            FlashlightOn = true;
+            audio.PlayOneShot(pressaudio);
         }
-        FlashlightOn = false;
+           
     }
 
 
-    void FixedUpdate(){
-        if(FlashlightOn == true){
-           audioturn.enabled = !audioturn.enabled;
-        }
-    }
 
 }
