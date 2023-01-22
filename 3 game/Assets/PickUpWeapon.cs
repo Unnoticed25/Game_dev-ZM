@@ -9,16 +9,23 @@ public class PickUpWeapon : MonoBehaviour
     public float distance = 15f;
     GameObject currentWeapon;
     bool canPickUp = false;
-   
+    public bool PickUped = false;
+    public AudioSource audio;
+    public AudioClip pressaudio;
 
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) PickUp();
         if (Input.GetKeyDown(KeyCode.G)) Drop();
+
+        if ((Input.GetButtonDown("Fire1")) && (PickUped = true))
+        {
+            GetComponent<AudioSource>().PlayOneShot(pressaudio);
+        }
     }
 
-    void PickUp()
+    public void PickUp()
     {
         RaycastHit hit;
         if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, distance))
@@ -34,11 +41,14 @@ public class PickUpWeapon : MonoBehaviour
                 currentWeapon.transform.localPosition = Vector3.zero;
                 currentWeapon.transform.localEulerAngles = new Vector3(-8f, -104f, 65f);
                 canPickUp = true;
+                PickUped = true;
             }
         }
 
         
     }
+
+
 
     void Drop()
     {
@@ -47,5 +57,6 @@ public class PickUpWeapon : MonoBehaviour
         currentWeapon.GetComponent<Collider>().isTrigger = false;
         canPickUp = false;
         currentWeapon = null;
+        PickUped = false;
     }
 }
