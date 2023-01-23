@@ -9,7 +9,7 @@ public class PickUpWeapon : MonoBehaviour
     public float distance = 15f;
     GameObject currentWeapon;
     bool canPickUp = false;
-    public bool PickUped = false;
+    bool PickUped = false;
     public AudioSource audio;
     public AudioClip pressaudio;
 
@@ -19,9 +19,11 @@ public class PickUpWeapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) PickUp();
         if (Input.GetKeyDown(KeyCode.G)) Drop();
 
-        if ((Input.GetButtonDown("Fire1")) && (PickUped = true))
+        if (PickUped == true)
         {
+            if (Input.GetButtonDown("Fire1")){
             GetComponent<AudioSource>().PlayOneShot(pressaudio);
+            }
         }
     }
 
@@ -44,8 +46,6 @@ public class PickUpWeapon : MonoBehaviour
                 PickUped = true;
             }
         }
-
-        
     }
 
 
