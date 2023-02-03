@@ -45,6 +45,20 @@ public class PickUpWeapon : MonoBehaviour
                 canPickUp = true;
                 PickUped = true;
             }
+
+            if(hit.transform.tag == "Pistol")
+            {
+                if (canPickUp) Drop();
+
+                currentWeapon = hit.transform.gameObject;
+                currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
+                currentWeapon.GetComponent<Collider>().isTrigger = true;
+                currentWeapon.transform.parent = transform;
+                currentWeapon.transform.localPosition = new Vector3(-0.09164843f, 0.07615261f, -0.03805602f);
+                currentWeapon.transform.localEulerAngles = new Vector3(0f, -84f, 0f);
+                canPickUp = true;
+                PickUped = true;
+            }
         }
     }
 
