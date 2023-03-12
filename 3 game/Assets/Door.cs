@@ -7,9 +7,6 @@ public class Door : MonoBehaviour
     private bool _isOpened;
     [SerializeField] private Animator _animator;
 
-    public void Start() {
-        _animator = GetComponent<Animator>();
-    }
 
     public void Open() {
         _animator.SetBool("IsOpened", _isOpened);

@@ -54,8 +54,8 @@ public class PickUpWeapon : MonoBehaviour
                 currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
                 currentWeapon.GetComponent<Collider>().isTrigger = true;
                 currentWeapon.transform.parent = transform;
-                currentWeapon.transform.localPosition = new Vector3(-0f, 0.07615261f, -0.03805602f);
-                currentWeapon.transform.localEulerAngles = new Vector3(0f, -84f, 0f);
+                currentWeapon.transform.localPosition = new Vector3(-0f, 0.07f, -0.038f);
+                currentWeapon.transform.localEulerAngles = new Vector3(0f, -100f, 0f);
                 canPickUp = true;
                 PickUped = true;
             }

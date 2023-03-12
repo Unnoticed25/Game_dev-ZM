@@ -37,6 +37,7 @@ public class interactive : MonoBehaviour
     private void Interact ()
     {
         if (_hit.transform != null && _hit.transform.GetComponent<Door>()){
+			Debug.DrawRay(_ray.origin, _ray.direction * _maxDistanceRay, Color.green);
             if(Input.GetKeyDown(KeyCode.E)){
                 _hit.transform.GetComponent<Door>().Open();
             }
