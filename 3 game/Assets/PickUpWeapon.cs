@@ -12,8 +12,29 @@ public class PickUpWeapon : MonoBehaviour
     bool PickUped = false;
     public AudioSource audio;
     public AudioClip pressaudio;
-
     
+    // Привязываение объектов оружия переменным
+    private GameObject PistolReal;
+
+    // Привязываение объектов Фейк-оружия переменным
+    private GameObject PistolFake;
+
+    //Поиск по имени объекта предметов, которые можно взять
+    public void RealObjects(){
+        PistolReal = GameObject.Find("Pistol92White");
+        PistolReal.SetActive(false);
+    }
+    //Поиск по имени объекта Фейк-предметов
+    public void FakesObjects(){
+        PistolFake = GameObject.Find("Pistol92fake");
+    }
+    
+    void Awake()
+    {
+        FakesObjects();
+        RealObjects();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) PickUp();
@@ -40,7 +61,7 @@ public class PickUpWeapon : MonoBehaviour
                 currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
                 currentWeapon.GetComponent<Collider>().isTrigger = true;
                 currentWeapon.transform.parent = transform;
-                currentWeapon.transform.localPosition = Vector3.zero;
+                currentWeapon.transform.localPosition = new Vector3(-0.3f, 0f, 0f);
                 currentWeapon.transform.localEulerAngles = new Vector3(-8f, -104f, 65f);
                 canPickUp = true;
                 PickUped = true;
@@ -49,18 +70,11 @@ public class PickUpWeapon : MonoBehaviour
             if(hit.transform.tag == "Pistol")
             {
                 if (canPickUp) Drop();
-
-                currentWeapon = hit.transform.gameObject;
-                currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
-                currentWeapon.GetComponent<Collider>().isTrigger = true;
-                currentWeapon.transform.parent = transform;
-                currentWeapon.transform.localPosition = new Vector3(-0f, 0.07f, -0.038f);
-                currentWeapon.transform.localEulerAngles = new Vector3(0f, -100f, 0f);
-                canPickUp = true;
-                PickUped = true;
+                PistolReal.SetActive(true);
+                Destroy(PistolFake);
             }
         }
-    }
+     }
 
 
 
